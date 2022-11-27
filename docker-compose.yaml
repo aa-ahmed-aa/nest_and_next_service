@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  nestjs_api:
+    build:
+      context: ./nestjs_api
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "${BACKEND_APP_PORT}:${BACKEND_APP_PORT}"
+    volumes:
+      - './nestjs_api/src:/app/src'
+  nextjs_frontend:
+    build:
+      context: ./nextjs_frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+
+
+volumes:
+  fudy-database:
