@@ -14,7 +14,9 @@ services:
       context: ./nextjs_frontend
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - "${FRONEND_APP_PORT}:${FRONEND_APP_PORT}"
+    volumes:
+      - './nextjs_frontend/pages:/app/pages'
 
 
 volumes:
