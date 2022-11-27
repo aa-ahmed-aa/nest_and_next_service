@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78d31678-1e76-4951-bebc-bd143706fa39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/nestjs_api/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nextjs_frontend/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="78d31678-1e76-4951-bebc-bd143706fa39" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/nextjs_frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/nestjs_api" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669583718615</updated>
-      <workItem from="1669583720128" duration="6128000" />
+      <workItem from="1669583720128" duration="6789000" />
     </task>
     <servers />
   </component>
