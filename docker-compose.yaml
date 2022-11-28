@@ -16,8 +16,4 @@ services:
     ports:
       - "${FRONEND_APP_PORT}:${FRONEND_APP_PORT}"
     volumes:
-      - './nextjs_frontend/pages:/app/pages'
-
-
-volumes:
-  fudy-database:
+      - './nextjs_frontend/pages/:/app/pages/'
