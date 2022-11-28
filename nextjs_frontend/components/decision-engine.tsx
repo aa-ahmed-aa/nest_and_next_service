@@ -19,7 +19,7 @@ const DEFAULT_BACKEND_BASE_URL = 'http://localhost:3001/decisionengine';
 export default function DecisionEngine() {
     return (
             <div className={styles.engine_box + ' p-5'}>
-            <h1 className="display-7 mb-5 text-center">Decision engine</h1>
+            <h1 className="display-7 mb-5 text-center">Loan Decision engine</h1>
             <Formik
                 initialValues={{
                     personalId: '',
