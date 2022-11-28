@@ -1,0 +1,10 @@
+
+.engine_box {
+    width: 500px;
+
+    background-color: #fff;
+}
+
+.invalid_form {
+    color: orangered;
+}
