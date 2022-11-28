@@ -1,7 +1,6 @@
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import styles from './decision-engine.module.css'
 import * as Yup from 'yup';
-import {Simulate} from "react-dom/test-utils";
 
 interface Values {
     personalId: string;
@@ -9,7 +8,11 @@ interface Values {
     date: string;
 }
 
-let loanStatus = '';
+let loanStatus: LoanStatus = {
+    userLoanAmount: '',
+    maxLoanAmount: '',
+    status: ''
+};
 
 const DEFAULT_BACKEND_BASE_URL = 'http://localhost:3001/decisionengine';
 
@@ -29,6 +32,9 @@ export default function DecisionEngine() {
             >
                 {({ errors, touched }) => (
                         <Form>
+
+                            { loanStatus.status ? <div className={"alert alert-" + (loanStatus.status === 'Rejected' ? 'danger' : 'success') }>Status: {loanStatus.status}, your can request amount of : {loanStatus.userLoanAmount} and max amount is: {loanStatus.maxLoanAmount} </div> : ''}
+
                             <div className="m-3">
                                 <label>Personal id code</label>
                                 <Field className="form-control" id="personalId" name="personalId" placeholder="Personal id code" />
@@ -47,9 +53,6 @@ export default function DecisionEngine() {
                                 <Field className="form-control" id="date" name="date" placeholder="Date" type="date" />
                                 <ErrorMessage name={"date"} render={msg => <div className={styles.invalid_form}>{msg}</div>} />
                             </div>
-
-                            {loanStatus === 'Approved' ? <div className="alert alert-success">{loanStatus}</div> : ''}
-                            {loanStatus === 'Rejected' ? <div className="alert alert-danger">{loanStatus}</div> : ''}
 
                             <div className="col text-center">
                                 <button className="btn btn-outline-primary">Calculate</button>
@@ -91,10 +94,17 @@ function getNumberOfMonths(value: any) {
         12 * (date.getFullYear() - today.getFullYear())
 }
 
+declare type LoanStatus = {
+    userLoanAmount: number | '',
+    maxLoanAmount: number | '',
+    status: number | ''
+};
+
 const submitForm = async (values: Values) => {
     const params = `?personal_id=${values.personalId}&amount=${values.amount}&no_of_months=${getNumberOfMonths(values.date)}`;
 
     loanStatus = await sendRequest(params);
+    console.log(loanStatus);
 }
 
 async function sendRequest(url: string) {
